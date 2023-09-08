@@ -11,24 +11,42 @@ public class App {
         int verrattava = 0;
 
 
+
         for (int i= 0; i < arvotutLuvut.length; i++) {
+System.out.println("On uudelleenarvonta: "+samaLuku); 
             arvottuLuku = arpoja.nextInt(1,36);
             arvotutLuvut[i] = arvottuLuku;
+System.out.println("ARVOTTU: "+arvottuLuku);
+  
 
-             for (int j= 0; j < i; j++) {
+             for (int j= 0; j < i; j++) {    
+                
+                verrattava = arvotutLuvut[j];
+System.out.println(verrattava+"V");
+                tarkistus = arvottuLuku;
+System.out.println(tarkistus+"T");              
 
-                tarkistus = arvotutLuvut[j];
-                verrattava = arvottuLuku;
+
                 if (tarkistus == verrattava) {
-                    samaLuku = true;;
-                    System.out.println("SAMA! "+tarkistus+" LUKU ARVO UUDESTAAN!");
+System.out.println("SAMA! "+tarkistus+" LUKU ARVO UUDESTAAN!");
+                    samaLuku = true;
+                    break;
+                } else {
+                    samaLuku = false;
                 }
-        
             }
-            System.out.println(arvotutLuvut[i]);
+            if (samaLuku == true) {
+                i = i -1;
+                continue;
+            } else
+                System.out.println("LISÄTTY LISTAAN: " + arvotutLuvut[i]);
+            
+        }
+        System.out.println("Arvotut numerot ovat: ");
+        for (int i = 0; i < arvotutLuvut.length; i++) {
+            System.out.print(arvotutLuvut[i]+" ");
 
         }
-
 
     }
 
